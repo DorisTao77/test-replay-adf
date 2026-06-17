@@ -1,0 +1,77 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "test-replay-adf"
+		},
+		"xinran_databricks_dbworkspace_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'xinran_databricks_dbworkspace'"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://xinran-keyvault.vault.azure.cn/"
+		},
+		"xinran_databricks_dbworkspace_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0421-101003-zdnplxlw"
+		},
+		"xinran-adf-SHIR-HA_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/4c93425b-5bf6-4192-97e1-ef576095aee5/resourcegroups/adf-onborad/providers/Microsoft.DataFactory/factories/xinran-adf/integrationruntimes/SHIR-HA"
+		},
+		"xinran-adf-SHIR-test-sahred_properties_typeProperties_linkedInfo_resourceId": {
+			"type": "string",
+			"defaultValue": "/subscriptions/4c93425b-5bf6-4192-97e1-ef576095aee5/resourcegroups/adf-onborad/providers/Microsoft.DataFactory/factories/xinran-adf/integrationruntimes/SHIR-test"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "test-replay-adf_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"xinran_databricks_dbworkspace_accessToken": {
+						"value": "[parameters('xinran_databricks_dbworkspace_accessToken')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"xinran-adf-SHIR-HA_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('xinran-adf-SHIR-HA_properties_typeProperties_linkedInfo_resourceId')]"
+					},
+					"xinran-adf-SHIR-test-sahred_properties_typeProperties_linkedInfo_resourceId": {
+						"value": "[parameters('xinran-adf-SHIR-test-sahred_properties_typeProperties_linkedInfo_resourceId')]"
+					},
+					"xinran_databricks_dbworkspace_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('xinran_databricks_dbworkspace_properties_typeProperties_existingClusterId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
