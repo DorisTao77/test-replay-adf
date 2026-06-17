@@ -1,0 +1,12 @@
+{
+	"name": "xinran-adf-SHIR-HA",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"linkedInfo": {
+				"resourceId": "/subscriptions/4c93425b-5bf6-4192-97e1-ef576095aee5/resourcegroups/adf-onborad/providers/Microsoft.DataFactory/factories/xinran-adf/integrationruntimes/SHIR-HA",
+				"authorizationType": "Rbac"
+			}
+		}
+	}
+}

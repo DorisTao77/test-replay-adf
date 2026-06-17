@@ -1,0 +1,17 @@
+{
+	"name": "xinran_databricks_dbworkspace",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricks",
+		"typeProperties": {
+			"domain": "https://adb-257306723344475.3.databricks.azure.cn",
+			"existingClusterId": "0421-101003-zdnplxlw",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3YjRiZGRmYi0yZjY4LTQzMDYtODIwYi03MGRmMGVmODBlZmEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "xinran-adf-SHIR-HA",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

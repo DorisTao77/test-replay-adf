@@ -1,0 +1,79 @@
+{
+	"name": "web-pipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "PBI_test_SP",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"url": "https://api.powerbi.cn/v1.0/myorg/groups/714c16d8-ede5-44a7-af1d-e35f67fc380d/datasets",
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					},
+					"authentication": {
+						"resource": "https://analysis.chinacloudapi.cn/powerbi/api",
+						"credential": {
+							"referenceName": "credential1",
+							"type": "CredentialReference"
+						},
+						"userTenant": "954ddad8-66d7-47a8-8f9f-1316152d9587",
+						"username": "7b744948-3107-45f4-ad63-a55ad60b74be",
+						"password": {
+							"type": "SecureString",
+							"value": "**********"
+						}
+					}
+				}
+			},
+			{
+				"name": "PBI_test_SP_certificate",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "GET",
+					"url": "https://api.powerbi.cn/v1.0/myorg/groups/714c16d8-ede5-44a7-af1d-e35f67fc380d/datasets",
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					},
+					"authentication": {
+						"resource": "https://analysis.chinacloudapi.cn/powerbi/api",
+						"credential": {
+							"referenceName": "credential1",
+							"type": "CredentialReference"
+						},
+						"userTenant": "954ddad8-66d7-47a8-8f9f-1316152d9587",
+						"username": "7b744948-3107-45f4-ad63-a55ad60b74be",
+						"password": {
+							"type": "SecureString",
+							"value": "**********"
+						}
+					},
+					"CloudType": "AzureChina"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-06-17T02:42:42Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
